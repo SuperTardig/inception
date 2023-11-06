@@ -1,5 +1,5 @@
 [mysql]
 port = 3306
-bind_address = *
+bind_address=*
 user = mysql
 datadir = /var/lib/mysql
