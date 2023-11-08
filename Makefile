@@ -1,1 +1,3 @@
-all: docker compose ./srcs -d --build
+all: 
+	cd ./srcs && docker compose up -d --build
+	
