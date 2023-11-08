@@ -1,0 +1,1 @@
+all: docker compose ./srcs -d --build
