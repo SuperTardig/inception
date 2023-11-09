@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 services:
   nginx:
@@ -16,7 +16,7 @@ services:
       - "443:443"
     restart: on-failure
     volumes:
-    - voluem-wordpress:var/www/wordpress
+      - voluem-wordpress:var/www/wordpress
       
   wordpress:
     container_name: wordpress
@@ -26,14 +26,14 @@ services:
     env_file:
       - .env
     depends_on:
-      - wordpress
+      - mariadb
     networks:
       - inception
     expose:
       - "9000"
     restart: on-failure
-    volume:
-    - voluem-wordpress:var/www/wordpress
+    volumes:
+      - voluem-wordpress:var/www/wordpress
 
   mariadb:
     container_name: mariadb
@@ -42,15 +42,13 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
-    depends_on:
-      - wordpress
     networks:
       - inception
     expose:
       - "3306"
     restart: unless-stopped
     volumes:
-    -voluem-mariadb:/var/lib/mysql
+      - voluem-mariadb:/var/lib/mysql
 
 volumes:
   voluem-wordpress:
