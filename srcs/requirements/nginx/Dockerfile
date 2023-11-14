@@ -11,8 +11,8 @@ RUN openssl req -newkey rsa:2048 \
  				-keyout key.key \
 				-out cert.crt \
 				-days 365 \
-				-subj "/C=CA/ST=QC/L=QC/O=42/OU=Quebec/CN=localhost"
+				-subj "/C=CA/ST=QC/L=QC/O=42/OU=Quebec/CN=42.bperron.fr"
 
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/
 
 CMD [ "nginx", "-g", "daemon off;" ]

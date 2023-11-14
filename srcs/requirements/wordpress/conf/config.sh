@@ -2,7 +2,7 @@
 
 sleep 10
 
-if [! -e /tmp/done]
+if [ ! -e /tmp/done ]
 then
 	touch /tmp/done
 	wp config create --allow-root \
