@@ -1,6 +1,12 @@
 #!bin/bash
 
-sleep 10
+SQL_TEST="mysql --protocol=tcp -u$SQL_USER -p$SQL_PASSWORD -h mariadb -P 3306 -e 'SELECT 1'"
+
+until eval $SQL_TEST &> /dev/null
+do
+	echo allo
+	sleep 1
+done
 
 if [ ! -e /tmp/done ]
 then
@@ -14,16 +20,16 @@ then
 
 	wp core install --allow-root \
 	--url='https://bperron.42.fr' \
-	--title=$title \
-	--admin_user=$SQL_USER \
-	--admin_password=$SQL_PASSWORD \
+	--title=title \
+	--admin_user=bperron \
+	--admin_password=$SQL_ROOT_PASSWORD \
 	--admin_email=$EMAIL \
 	--path='var/www/wordpress'
 
 	wp user create --allow-root \
-	$USER $USER_EMAIL \
+	$SQL_USER $EMAIL \
 	--role=author \
-	--user_pass=$USER_PASS \
+	--user_pass=$SQL_PASSWORD \
 	--path='/var/www/wordpress'
 
 	if [! -e /run/php]
