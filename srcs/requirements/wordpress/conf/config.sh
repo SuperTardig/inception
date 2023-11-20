@@ -4,19 +4,18 @@ SQL_TEST="mysql --protocol=tcp -u$SQL_USER -p$SQL_PASSWORD -h mariadb -P 3306 -e
 
 until eval $SQL_TEST &> /dev/null
 do
-	echo allo
 	sleep 1
 done
 
 if [ ! -e /tmp/done ]
 then
 	touch /tmp/done
-	wp config create --allow-root \
-	--dbname=$SQL_DATABASE \
-	--dbuser=$SQL_USER \
-	--dbpass=$SQL_PASSWORD \
-	--dbhost=mariadb:3306 \
-	--path='var/www/wordpress'
+	#wp config create --allow-root \
+	#--dbname=$SQL_DATABASE \
+	#--dbuser=$SQL_USER \
+	#--dbpass=$SQL_PASSWORD \
+	#--dbhost=mariadb:3306 \
+	#--path='var/www/wordpress'
 
 	wp core install --allow-root \
 	--url='https://bperron.42.fr' \
@@ -32,7 +31,7 @@ then
 	--user_pass=$SQL_PASSWORD \
 	--path='/var/www/wordpress'
 
-	if [! -e /run/php]
+	if [ ! -e /run/php]
 	then
 		mkdir /run/php
 	fi

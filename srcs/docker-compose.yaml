@@ -51,15 +51,15 @@ volumes:
   voluem-wordpress:
     driver: local
     driver_opts:
-      type: 'none' 								
+      type: 'none'
       o: 'bind'
-      device: '/Users/bperron/data/wordpress' 		
+      device: '/home/benjaminp/data/wordpress'
   voluem-mariadb:
     driver: local
     driver_opts:
       type: 'none' 
-      o: 'bind'										  
-      device: '/Users/bperron/data/mariadb'
+      o: 'bind'
+      device: '/home/benjaminp/data/mariadb'
 
 networks:
   inception:
