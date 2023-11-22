@@ -9,9 +9,11 @@ COPY startup.sh .
 
 RUN chmod +x /startup.sh
 
-ENV SQL_DB=db
+ENV SQL_DATABASE=db
 ENV SQL_USER=user1
-ENV SQL_PWD=password
-ENV SQL_ROOT_PWD=root
+ENV SQL_PASSWORD=password
+ENV SQL_ROOT_PASSWORD=root
+
+EXPOSE 3306
 
 ENTRYPOINT [ "sh", "startup.sh" ]
