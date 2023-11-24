@@ -1,9 +1,12 @@
 #!bin/bash
 
-while ! mysqladmin -h $SQL_DATABASE -u $SQL_USER -p $SQL_PASSWORD --silent ping; do
+echo -e "starting script"
+
+while ! mysqladmin ping -h $SQL_DATABASE -u $SQL_USER -p $SQL_PASSWORD --silent; do
+	echo -e "waiting for mariadb"
 	sleep 1
 done
-
+echo -e "wait is done"
 if [ ! -e /tmp/done ]
 then
 	touch /tmp/done
@@ -32,6 +35,7 @@ then
 	then
 		mkdir /run/php
 	fi
+	echo allo
 fi
-
+echo fankj
 /usr/sbin/php-fpm7.3 -F
