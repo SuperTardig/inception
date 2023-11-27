@@ -18,6 +18,7 @@ then
 	--admin_user=bperron \
 	--admin_password=$SQL_ROOT_PASSWORD \
 	--admin_email=$EMAIL \
+  --skip-email \
 	--path='var/www/wordpress'
 
 	wp user create --allow-root \
