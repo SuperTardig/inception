@@ -34,4 +34,4 @@ then
 fi
 echo "launching php-fpm"
 
-exec php-fpm7.3 -F
+exec php-fpm -F
