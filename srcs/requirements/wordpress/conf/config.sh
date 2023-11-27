@@ -31,7 +31,10 @@ then
 	then
 		mkdir /run/php
 	fi
+
+  chmod 755 /var/www/wordpress
+  chown -R www-data:www-data /var/www/wordpress
 fi
 echo "launching php-fpm"
 
-exec php-fpm -F
+exec /usr/sbin/php-fpm7.3 -F
