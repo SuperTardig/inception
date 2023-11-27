@@ -12,6 +12,7 @@ then
 	--dbhost=mariadb:3306 \
 	--path='var/www/wordpress'
 
+  sleep 1
 	wp core install --allow-root \
 	--url='https://bperron.42.fr' \
 	--title=title \
@@ -21,6 +22,7 @@ then
   --skip-email \
 	--path='var/www/wordpress'
 
+  sleep 1
 	wp user create --allow-root \
 	$SQL_USER $EMAIL \
 	--role=author \
@@ -31,10 +33,7 @@ then
 	then
 		mkdir /run/php
 	fi
-
-  chmod 755 /var/www/wordpress
-  chown -R www-data:www-data /var/www/wordpress
 fi
-echo "launching php-fpm"
 
+echo "launching php-fpm"
 exec /usr/sbin/php-fpm7.3 -F
