@@ -9,5 +9,5 @@ COPY conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 #COPY conf/wp-config.php /var/www/wordpress
 COPY conf/config.sh /
 
-#ENTRYPOINT [ "sh", "/config.sh" ]
+ENTRYPOINT [ "sh", "/config.sh" ]
 
