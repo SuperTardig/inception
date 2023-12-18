@@ -53,13 +53,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/Users/bperron/inception/data/wordpress'
+      device: '/home/bperron/inception/data/wordpress'
   voluem-mariadb:
     driver: local
     driver_opts:
       type: 'none' 
       o: 'bind'
-      device: '/Users/bperron/inception/data/mariadb'
+      device: '/home/bperron/inception/data/mariadb'
 
 networks:
   inception:

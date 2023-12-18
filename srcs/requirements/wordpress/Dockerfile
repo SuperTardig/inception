@@ -12,4 +12,3 @@ COPY conf/config.sh /
 EXPOSE 9000
 
 ENTRYPOINT [ "sh", "/config.sh" ]
-
