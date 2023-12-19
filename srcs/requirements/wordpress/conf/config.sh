@@ -15,11 +15,11 @@ then
   sleep 1
 	wp core install --allow-root \
 	--url='https://bperron.42.fr' \
-	--title=title \
+	--title=bperron \
 	--admin_user=bperron \
 	--admin_password=$SQL_ROOT_PASSWORD \
 	--admin_email=$EMAIL \
-  --skip-email \
+  	--skip-email \
 	--path='var/www/wordpress'
 
   sleep 1
@@ -36,4 +36,4 @@ then
 fi
 
 echo "launching php-fpm"
-exec /usr/sbin/php-fpm7.4  -F
+exec /usr/sbin/php-fpm7.3  -F
