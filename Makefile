@@ -17,11 +17,14 @@ create_folder:
 fclean: down
 	sudo docker system prune -af
 	sudo docker volume prune -f
-	cd data/wordpress && sudo rm -rf *
-	cd data/mariadb && sudo rm -rf *
+	cd ../data/wordpress && sudo rm -rf *
+	cd ../data/mariadb && sudo rm -rf *
 
 re: fclean create_folder up
 
-.SILENT: all create_folder fclean re up down
+logs:
+	sudo docker compose logs
 
-.PHONY: all create_folder fclean re up down
+.SILENT: all create_folder fclean re up down build
+
+.PHONY: all create_folder fclean re up down build
