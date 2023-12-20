@@ -17,6 +17,8 @@ create_folder:
 fclean: down
 	sudo docker system prune -af
 	sudo docker volume prune -f
+	sudo docker volume rm srcs_voluem-mariadb
+	sudo docker volume rm srcs_voluem-wordpress
 	cd ../data/wordpress && sudo rm -rf *
 	cd ../data/mariadb && sudo rm -rf *
 
