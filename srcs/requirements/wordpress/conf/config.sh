@@ -18,7 +18,7 @@ then
 
   sleep 1
 	wp user create --allow-root \
-	$SQL_USER $EMAIL \
+	$SQL_USER $EMAIL2 \
 	--role=author \
 	--user_pass=$SQL_PASSWORD \
 	--path='/var/www/wordpress'

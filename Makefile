@@ -9,6 +9,9 @@ up:
 down:
 	sudo docker compose -f ./srcs/docker-compose.yml down
 
+mariadb:
+	sudo docker exec -it mariadb sh
+
 create_folder:
 	if [ ! -d "../data/" ]; then mkdir -p ../data/; fi
 	if [ ! -d "../data/mariadb/" ]; then mkdir -p ../data/mariadb/; fi
@@ -25,8 +28,8 @@ fclean: down
 re: fclean create_folder up
 
 logs:
-	sudo docker compose logs
+	sudo docker compose -f ./srcs/docker-compose.yml logs
 
-.SILENT: all create_folder fclean re up down build
+.SILENT: all create_folder fclean re up down build logs
 
 .PHONY: all create_folder fclean re up down build
